@@ -9,8 +9,8 @@ import (
 func Login(c *gin.Context) {
 
 	type Login struct {
-		username string
-		password string
+		Username string `json:"username" binding:"required"`
+		Password string `json:"password" binding:"required"`
 	}
 
 	var creds Login
@@ -19,5 +19,5 @@ func Login(c *gin.Context) {
 		return
 	}
 
-	c.JSON(http.StatusOK, gin.H{"message": "Logged In", "email": creds.username, "password": creds.password})
+	c.JSON(http.StatusOK, gin.H{"message": "Logged In", "email": creds.Username, "password": creds.Password})
 }

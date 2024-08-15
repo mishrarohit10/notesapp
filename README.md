@@ -14,7 +14,6 @@ features ->
    * light dark mode
    * email notification for reminders -> SendGrid, gomail
 
-
 -- project structure
 
 ── cmd

@@ -17,32 +17,17 @@ features ->
 
 -- project structure
 
-server/
-├── cmd/
+── cmd
 │   └── main.go
-├── internal/
-│   ├── user/
-│   │   ├── handler.go
-│   │   ├── handler_test.go   # Tests for handlers
-│   │   ├── service.go
-│   │   └── service_test.go   # Tests for services
-│   ├── order/
-│   │   ├── handler.go
-│   │   ├── handler_test.go   # Tests for handlers
-│   │   ├── service.go
-│   │   └── service_test.go   # Tests for services
-│   └── product/
-│       ├── handler.go
-│       ├── handler_test.go   # Tests for handlers
-│       ├── service.go
-│       └── service_test.go   # Tests for services
-├── pkg/
-│   ├── middleware/
-│   │   └── auth.go
-│   │   └── auth_test.go      # Tests for middleware
-│   └── utils/
-│       └── helpers.go
-│       └── helpers_test.go   # Tests for utilities
 ├── go.mod
 ├── go.sum
-└── README.md
+├── internal
+│   ├── auth
+│   └── user
+│       ├── handler.go
+│       ├── handler_test.go
+│       ├── service.go
+│       └── service_test.go
+└── pkg
+    ├── middleware
+    └── utils

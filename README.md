@@ -12,4 +12,4 @@ features ->
    * add notes with images
    * save versions of notes
    * light dark mode
-   * email notification for reminders
+   * email notification for reminders -> SendGrid, gomail

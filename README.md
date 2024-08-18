@@ -7,7 +7,7 @@ backend - golang gin
 
 features ->
 
-   * login and signup
+   * login and signup 
    * CRUD notes
    * add notes with images
    * save versions of notes
@@ -16,12 +16,15 @@ features ->
 
 -- project structure
 
-── cmd
+├── cmd
 │   └── main.go
+├── docker-compose.yml
 ├── go.mod
 ├── go.sum
 ├── internal
 │   ├── auth
+│   ├── db
+│   │   └── connection.go
 │   └── user
 │       ├── handler.go
 │       ├── handler_test.go

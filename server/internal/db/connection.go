@@ -1,15 +1,15 @@
 package db
 
 import (
-	"database/sql"
 	"fmt"
 	"log"
 	"os"
 
-	_ "github.com/lib/pq"
+	"gorm.io/driver/postgres"
+	"gorm.io/gorm"
 )
 
-var DB *sql.DB
+var DB *gorm.DB
 
 func Init() error {
 
@@ -19,17 +19,18 @@ func Init() error {
 	password := os.Getenv("DB_PASSWORD")
 	dbname := os.Getenv("DB_NAME")
 
-	connStr := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=disable", host, port, user, password, dbname)
+	dsn := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=disable", host, port, user, password, dbname)
 
 	var err error
-	DB, err = sql.Open("postgres", connStr)
+	DB, err = gorm.Open(postgres.Open(dsn), &gorm.Config{})
 
+	sqlDB, err := DB.DB()
 	if err != nil {
 		log.Fatalf("Error opening database connection: %v", err)
 		return err
 	}
 
-	err = DB.Ping()
+	err = sqlDB.Ping()
 	if err != nil {
 		log.Fatalf("Error pining database: %v", err)
 		return err
